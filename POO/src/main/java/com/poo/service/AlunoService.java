@@ -19,6 +19,7 @@ public class AlunoService {
 	public Aluno newAluno(AlunoInput alunoInput) {
 		Aluno aluno = new Aluno();
 		aluno.setName(alunoInput.getName());
+		aluno.setEmail(alunoInput.getEmail());
 		aluno.setTurma(alunoInput.getTurma());
 		return alunoRepository.save(aluno);	
 	}

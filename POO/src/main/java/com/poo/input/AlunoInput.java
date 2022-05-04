@@ -7,11 +7,13 @@ import com.poo.model.Turma;
 public class AlunoInput {
 	private Long id;
 	private String name;
+	private String email;
 	private Turma turma;
 	
-	public AlunoInput(Long id, String name, Turma turma) {
+	public AlunoInput(Long id, String name,String email, Turma turma) {
 		this.id = id;
 		this.name = name;
+		this.email = email;
 		this.turma = turma;
 	}
 
@@ -21,6 +23,15 @@ public class AlunoInput {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Turma getTurma() {
@@ -33,7 +44,7 @@ public class AlunoInput {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, turma);
+		return Objects.hash(id, name, email, turma);
 	}
 
 	@Override
@@ -45,12 +56,12 @@ public class AlunoInput {
 		if (getClass() != obj.getClass())
 			return false;
 		AlunoInput other = (AlunoInput) obj;
-		return Objects.equals(id, other.id) && Objects.equals(name, other.name) && turma == other.turma;
+		return Objects.equals(id, other.id) && Objects.equals(name, other.name) && Objects.equals(email, other.email) && turma == other.turma;
 	}
 
 	@Override
 	public String toString() {
-		return "AlunoInput [id=" + id + ", name=" + name + ", turma=" + turma + "]";
+		return "AlunoInput [id=" + id + ", name=" + name + ", email " + email + ", turma=" + turma + "]";
 	}
 	
 	
