@@ -45,6 +45,12 @@ public class AlunoController {
 		return ResponseEntity.ok(aluno);
 	}
 	
+	@GetMapping (value = "/sortId")
+	public ResponseEntity<List<Aluno>> findOrderById(){
+		List<Aluno> alunos = alunoRepository.findAll(Sort.by(Sort.Direction.ASC,"id"));
+		return ResponseEntity.ok(alunos);
+	}
+	
 	@GetMapping (value = "/sortName")
 	public ResponseEntity<List<Aluno>> findOrderByName(){
 		List<Aluno> alunos = alunoRepository.findAll(Sort.by(Sort.Direction.ASC,"name"));
