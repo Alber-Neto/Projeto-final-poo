@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,12 @@ public class AlunoController {
 	@GetMapping (value = "/{alunoId}")
 	public ResponseEntity<Aluno> getAluno(@PathVariable Long alunoId) {
 		Aluno aluno = alunoService.getAluno(alunoId);
+		return ResponseEntity.ok(aluno);
+	}
+	
+	@DeleteMapping (value = "/delete/{alunoId}")
+	public ResponseEntity<Aluno> delAluno(@PathVariable Long alunoId) {
+		Aluno aluno = alunoService.delAluno(alunoId);
 		return ResponseEntity.ok(aluno);
 	}
 	

@@ -36,5 +36,16 @@ public class AlunoService {
 			return null;
 	}
 	
+	public Aluno delAluno(Long alunoId) {
+		Optional<Aluno> aluno = alunoRepository.findById(alunoId);
+		if(aluno.isPresent()) {
+			alunoRepository.delete(aluno.get());
+			return aluno.get();
+		}
+		else {
+			return null;
+		}
+	}
+	
 	
 }

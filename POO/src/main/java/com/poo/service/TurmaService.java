@@ -34,4 +34,15 @@ public class TurmaService {
 		else
 			return null;
 	}
+	
+	public Turma delTurma(Long turmaId) {
+		Optional<Turma> turma = turmaRepository.findById(turmaId);
+		if(turma.isPresent()) {
+			turmaRepository.delete(turma.get());
+			return turma.get();
+		}
+		else {
+			return null;
+		}
+	}
 }

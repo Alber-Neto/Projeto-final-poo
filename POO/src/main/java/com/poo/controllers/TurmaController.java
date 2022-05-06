@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,12 @@ public class TurmaController {
 	public ResponseEntity<Turma> getTurma(@PathVariable Long turmaId) {
 		Turma turma = turmaService.getTurma(turmaId);
 		return ResponseEntity.ok(turma);
-	}	
+	}
+	
+	@DeleteMapping (value = "/delete/{turmaId}")
+	public ResponseEntity<Turma> delTurma(@PathVariable Long turmaId) {
+		Turma turma = turmaService.delTurma(turmaId);
+		return ResponseEntity.ok(turma);
+	}
 	
 }
